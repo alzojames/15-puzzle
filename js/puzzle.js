@@ -9,7 +9,7 @@ var spaceX;
 
 
  window.onload = function (){
-	//startGame();
+	startGame();
 
 	$(function(){
 		$("#overall").hide();
@@ -107,10 +107,18 @@ var spaceX;
 
 };
 
-function startGame(){
+function startGame(image){
+
+	$(function(){
+		$("#overall").show();
+	});
+
+	console.log(image);
 	var puzzleArea = document.getElementById('puzzlearea');
 	gamePiece = puzzleArea.getElementsByTagName('div'); //retrieve element within puzzlearea
-    
+	
+	//var myImage = './puzzle.jpg';
+	var myImage2 = './p.jpg';
 	for (var i=0; i<gamePiece.length; i++) {//applies features to each puzzle piece 
 
 		gamePiece[i].className = 'puzzlepiece'; //setting up the puzzle piece code
@@ -125,7 +133,8 @@ function startGame(){
 				this.style.color = "#006600"; //text color changes to green when a puzzle piece is near an empty space
 				this.style.textDecoration = "underline"; //underlines the number of the puzzle piece piece
     		    //sets the image for the puzzle's background 
-                this.style.backgroundImage="url('./puzzle.jpg')";
+				this.style.backgroundImage="url("+image+")";
+				//$('#myBanner').css("background", "url("+bgImg+")");
 			}
 		};
 
