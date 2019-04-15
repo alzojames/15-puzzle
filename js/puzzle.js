@@ -64,6 +64,17 @@ function startGame(image){
 			
 			console.log(moves);
 			if (checkMove(parseInt(this.innerHTML))) {//checks whether or not the puzzle piece can move into an empty space
+				//Spin Animation for Game
+                $(this).animate(
+                    { deg: 360 },
+                    {
+                     duration: 1100,
+                     step: function(now) {
+                        $(this).css({ transform: 'rotate(' + now + 'deg)' });
+                     }
+                    }
+				 );
+				 
 				swap(this.innerHTML-1); //moves into an empty space if true
 
 				if (finish()) {//checks when the all the 15 pieces are in its right space
